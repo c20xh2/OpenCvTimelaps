@@ -3,6 +3,7 @@ import time
 import subprocess
 import os
 
+
 def framecapture(username, password, protocol, camerapath, interval, nbframe, i):
 	camera = str(protocol) + "://" + str(username) + ":" + str(password) + "@" + str(camerapath)
 	vcap = cv2.VideoCapture(camera)
@@ -11,17 +12,21 @@ def framecapture(username, password, protocol, camerapath, interval, nbframe, i)
 	cv2.imwrite(filename, frame)
 	vcap.release()
 	
+
+
 print ("\n" *200)
 
 # Camera info
-username = "admin"
-password = "password"
-protocol = "rtsp"
-camerapath = "192.168.1.75/live/ch0"
+print ("\n###### Camera Info ######")
+username = input("\n[+] Enter username for the camera: ")
+password = input(" [|] Enter password for the camera: ")
+protocol = input(" [|] Enter protocol of the stream (ex: http, rtsp): ")
+camerapath = input(" [|] Enter path of the camera (ex: 192.168.1.75/live/ch0): ")
 
 
 # Get video info
-fps = int(input("[+] Enter Frame per second of final video: "))
+print ("\n###### Videos Info ######")
+fps = int(input("\n[+] Enter Frame per second of final video: "))
 length = int(input("[|] Enter length of final video (in seconds): "))
 eventlast = float(input("[|] How long the event will last (in hours): "))
 finalname = input("[|] Please enter the name for the final file (don't forget the .mp4): ")
@@ -34,12 +39,13 @@ interval = eventlastsec / nbframe
 interval = round(interval, 0)
 
 i = 0
-
+time.sleep(1)
 # Validate infos before starting capture
 
 print ("\n" *200)
 
-print ("[+] Output file name: " + str(finalname))
+print ("###### Validations ######")
+print ("\n[+] Output file name: " + str(finalname))
 print (" [|] Event length: " + str(eventlast) + " h.")
 print (" [|] Final Video length: " + str(length) + " sec.")
 
