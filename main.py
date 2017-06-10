@@ -92,7 +92,6 @@ elif launch == ('y'):
 			print ("")
 			print ("\n[+] " + str(i) + "/" + str(nbframe) +" Frames captured")
 			print (" [|] " + str(timeleft) + " minutes left")
-			print ("\n" * 5)
 			
 			i = i + 1
 		except KeyboardInterrupt:
