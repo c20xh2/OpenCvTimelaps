@@ -4,7 +4,6 @@ import subprocess
 import os
 import sys
 
-
 def framecapture(username, password, protocol, camerapath, interval, nbframe, i):
 	camera = str(protocol) + "://" + str(username) + ":" + str(password) + "@" + str(camerapath)
 	vcap = cv2.VideoCapture(camera)
@@ -19,8 +18,6 @@ def videoexport(fps, finalname):
 	subprocess.call(["avconv", "-r", str(fps), "-i", 'png/capture_%d.png', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', 'video/' + str(finalname)], stdout=FNULL, stderr=subprocess.STDOUT)
 	print("\n[!] Congrats ! Filename: " + str(finalname))
 
-
-
 print ("\n" *200)
 
 # Camera info
@@ -29,7 +26,6 @@ username = input("\n[+] Enter username for the camera: ")
 password = input(" [|] Enter password for the camera: ")
 protocol = input(" [|] Enter protocol of the stream (ex: http, rtsp): ")
 camerapath = input(" [|] Enter path of the camera (ex: 192.168.1.75/live/ch0): ")
-
 
 # Get video info
 print ("\n###### Videos Info ######")
@@ -72,6 +68,7 @@ if launch == ('n'):
 elif launch == ('y'):
 	launched = time.strftime("%c")
 	print ('\nStarting Capture...')
+
 	while (i < nbframe):
 		try:
 
@@ -104,8 +101,6 @@ elif launch == ('y'):
 			sys.exit()
 	# Capture is over, putting all the images together to create video file
 	videoexport(fps, finalname)
-	
-	
 
 else:
 	print ('\nAbording Capture...')
