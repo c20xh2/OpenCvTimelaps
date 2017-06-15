@@ -26,13 +26,13 @@ def videoexport(fps, finalname, created, outputpath, savepath):
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('-u', dest='username', help='Camera username', type=str)
-parser.add_argument('-p', dest='password', help='Camera password', type=str)
-parser.add_argument('-t', dest='protocol', help='Type of stream (ex:rtsp, http)', type=str)
-parser.add_argument('-c', dest='camerapath', help='Camera path (ex:\'192.168.1.75/live/ch0\')', type=str)
-parser.add_argument('-l', dest='length', help='Length of the output video (in seconds)', type=int)
-parser.add_argument('-e', dest='eventlast', help='How long will the event last (in hours)', type=int)
-parser.add_argument('-n', dest='correction', help='How long will the event last (in hours)', type=int)
+parser.add_argument('-u', dest='username', help='Camera username', type=str, required=True)
+parser.add_argument('-p', dest='password', help='Camera password', type=str, required=True)
+parser.add_argument('-t', dest='protocol', help='Type of stream (ex:rtsp, http)', type=str, required=True)
+parser.add_argument('-c', dest='camerapath', help='Camera path (ex:\'192.168.1.75/live/ch0\')', type=str, required=True)
+parser.add_argument('-l', dest='length', help='Length of the output video (in seconds)', type=int, required=True)
+parser.add_argument('-e', dest='eventlast', help='How long will the event last (in hours)', type=int, required=True)
+parser.add_argument('-n', dest='correction', help='How long will the event last (in hours)', type=int, required=False, default=0)
 parser.add_argument('-f', dest='fps', help='frame per seconds', type=int)
 
 args = parser.parse_args()
