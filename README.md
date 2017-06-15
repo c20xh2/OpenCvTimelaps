@@ -25,3 +25,10 @@ optional arguments:
   -e EVENTLAST   How long will the event last (in hours)
   -n CORRECTION  How long will the event last (in hours)
   -f FPS         frame per seconds
+
+
+# Files
+
+main.py give you the option of starting the capture for the timelapse right away or let you schedual it with with a cronjob.
+
+auto.py is called by the cronjob if you choosed to schedual the task.
