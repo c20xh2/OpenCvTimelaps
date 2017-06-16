@@ -7,7 +7,7 @@ Create timelapse from LAN/WIFI/USB cameras.
 
 OpenCv3.2 (http://opencv.org/)
 
-python-crontab (pip install python-crontab)
+python-crontab (pip3 install python-crontab)
 
 
 
